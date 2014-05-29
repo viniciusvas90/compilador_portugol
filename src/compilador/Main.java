@@ -19,16 +19,16 @@ import org.sablecc.portugol.node.*;
 public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, LexerException, IOException {
-        File file = new File("C:\\Users\\Eduardo Santos\\Desktop\\LFT\\sablecc-3.7\\lib\\teste.txt");
+        File file = new File("E:\\Users\\Eduardo Santos\\Documents\\NetBeansProjects\\Compilador\\src\\compilador\\teste.txt");
         Lexer lex = new Lexer(new PushbackReader(new FileReader(file)));
         String teste = "";
         int linha = 0;
         while (!(lex.peek() instanceof EOF)) {
             if (lex.peek().getLine() > linha) {
                 linha = lex.peek().getLine();
-                teste = teste + System.lineSeparator();
+                teste = teste + System.lineSeparator()+linha;
             }
-            teste = teste + "\n" + lex.next().getClass().getSimpleName();
+            teste = teste + " " + lex.next().getClass().getSimpleName();
         }
         System.out.println(teste);
     }

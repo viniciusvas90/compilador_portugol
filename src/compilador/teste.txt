@@ -1,0 +1,9 @@
+programa meu_programa1
+    inicio
+        inteiro: matricula, idade, telefones [3];
+        real: nota1, nota2, nota3, media;
+        caractere: turma;
+        const peso_nota1 3;
+
+        
+    fim.
