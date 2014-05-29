@@ -201,13 +201,13 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTMais(TMais node)
+    public void caseTSoma(TSoma node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTMenos(TMenos node)
+    public void caseTSubtracao(TSubtracao node)
     {
         defaultCase(node);
     }
@@ -225,37 +225,37 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTLogIgual(TLogIgual node)
+    public void caseTIgualdade(TIgualdade node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTLogDiferente(TLogDiferente node)
+    public void caseTDiferenca(TDiferenca node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTLogMenorIgual(TLogMenorIgual node)
+    public void caseTMenorIgual(TMenorIgual node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTLogMaiorIgual(TLogMaiorIgual node)
+    public void caseTMaiorIgual(TMaiorIgual node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTLogMenor(TLogMenor node)
+    public void caseTMenor(TMenor node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTLogMaior(TLogMaior node)
+    public void caseTMaior(TMaior node)
     {
         defaultCase(node);
     }
@@ -267,19 +267,19 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTLogE(TLogE node)
+    public void caseTConjuncao(TConjuncao node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTLogOu(TLogOu node)
+    public void caseTDisjuncao(TDisjuncao node)
     {
         defaultCase(node);
     }
 
     @Override
-    public void caseTLogOuExclusivo(TLogOuExclusivo node)
+    public void caseTDisjuncaoExc(TDisjuncaoExc node)
     {
         defaultCase(node);
     }
@@ -315,7 +315,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTCaractere(TCaractere node)
+    public void caseTTexto(TTexto node)
     {
         defaultCase(node);
     }

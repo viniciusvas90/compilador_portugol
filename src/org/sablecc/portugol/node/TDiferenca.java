@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TLogMaior extends Token
+public final class TDiferenca extends Token
 {
-    public TLogMaior()
+    public TDiferenca()
     {
-        super.setText(">");
+        super.setText("<>");
     }
 
-    public TLogMaior(int line, int pos)
+    public TDiferenca(int line, int pos)
     {
-        super.setText(">");
+        super.setText("<>");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TLogMaior extends Token
     @Override
     public Object clone()
     {
-      return new TLogMaior(getLine(), getPos());
+      return new TDiferenca(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTLogMaior(this);
+        ((Analysis) sw).caseTDiferenca(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TLogMaior text.");
+        throw new RuntimeException("Cannot change TDiferenca text.");
     }
 }

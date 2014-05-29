@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TMais extends Token
+public final class TMaior extends Token
 {
-    public TMais()
+    public TMaior()
     {
-        super.setText("+");
+        super.setText(">");
     }
 
-    public TMais(int line, int pos)
+    public TMaior(int line, int pos)
     {
-        super.setText("+");
+        super.setText(">");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TMais extends Token
     @Override
     public Object clone()
     {
-      return new TMais(getLine(), getPos());
+      return new TMaior(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTMais(this);
+        ((Analysis) sw).caseTMaior(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TMais text.");
+        throw new RuntimeException("Cannot change TMaior text.");
     }
 }

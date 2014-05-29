@@ -1,6 +1,7 @@
 Package org.sablecc.portugol; // package name
 
 Helpers
+  ascii_char = [32 .. 38] | [40 .. 127] | ' ';
   digito = ['0' .. '9'];
   letra_up = ['A' .. 'Z'];
   letra_low = ['a' .. 'z'];
@@ -57,9 +58,9 @@ Tokens
   tipo_char = 'caractere';
   
   //outras
-  id = (letra | underline) (letra | underline | digito)* /*- reservadas*/;
-  numero = digito+','?digito*; /*verificar ocorrencia de 0abc*/
-  caractere = 39 letra* 39;
+  id = (letra | underline) (letra | underline | digito)*;
+  numero = digito+','?digito*;
+  texto = '''ascii_char*''';
   coment_linha = '//';
   //coment_bloco = ;
   

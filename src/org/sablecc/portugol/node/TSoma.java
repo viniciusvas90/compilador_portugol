@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TLogOuExclusivo extends Token
+public final class TSoma extends Token
 {
-    public TLogOuExclusivo()
+    public TSoma()
     {
-        super.setText("xor");
+        super.setText("+");
     }
 
-    public TLogOuExclusivo(int line, int pos)
+    public TSoma(int line, int pos)
     {
-        super.setText("xor");
+        super.setText("+");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TLogOuExclusivo extends Token
     @Override
     public Object clone()
     {
-      return new TLogOuExclusivo(getLine(), getPos());
+      return new TSoma(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTLogOuExclusivo(this);
+        ((Analysis) sw).caseTSoma(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TLogOuExclusivo text.");
+        throw new RuntimeException("Cannot change TSoma text.");
     }
 }

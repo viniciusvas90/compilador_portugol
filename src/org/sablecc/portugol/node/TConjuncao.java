@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TLogMenorIgual extends Token
+public final class TConjuncao extends Token
 {
-    public TLogMenorIgual()
+    public TConjuncao()
     {
-        super.setText("<=");
+        super.setText("e");
     }
 
-    public TLogMenorIgual(int line, int pos)
+    public TConjuncao(int line, int pos)
     {
-        super.setText("<=");
+        super.setText("e");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TLogMenorIgual extends Token
     @Override
     public Object clone()
     {
-      return new TLogMenorIgual(getLine(), getPos());
+      return new TConjuncao(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTLogMenorIgual(this);
+        ((Analysis) sw).caseTConjuncao(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TLogMenorIgual text.");
+        throw new RuntimeException("Cannot change TConjuncao text.");
     }
 }

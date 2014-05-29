@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TLogIgual extends Token
+public final class TMaiorIgual extends Token
 {
-    public TLogIgual()
+    public TMaiorIgual()
     {
-        super.setText("=");
+        super.setText(">=");
     }
 
-    public TLogIgual(int line, int pos)
+    public TMaiorIgual(int line, int pos)
     {
-        super.setText("=");
+        super.setText(">=");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TLogIgual extends Token
     @Override
     public Object clone()
     {
-      return new TLogIgual(getLine(), getPos());
+      return new TMaiorIgual(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTLogIgual(this);
+        ((Analysis) sw).caseTMaiorIgual(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TLogIgual text.");
+        throw new RuntimeException("Cannot change TMaiorIgual text.");
     }
 }

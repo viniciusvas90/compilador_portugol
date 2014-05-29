@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TLogE extends Token
+public final class TMenorIgual extends Token
 {
-    public TLogE()
+    public TMenorIgual()
     {
-        super.setText("e");
+        super.setText("<=");
     }
 
-    public TLogE(int line, int pos)
+    public TMenorIgual(int line, int pos)
     {
-        super.setText("e");
+        super.setText("<=");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TLogE extends Token
     @Override
     public Object clone()
     {
-      return new TLogE(getLine(), getPos());
+      return new TMenorIgual(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTLogE(this);
+        ((Analysis) sw).caseTMenorIgual(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TLogE text.");
+        throw new RuntimeException("Cannot change TMenorIgual text.");
     }
 }

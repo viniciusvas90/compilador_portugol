@@ -5,14 +5,14 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TCaractere extends Token
+public final class TTexto extends Token
 {
-    public TCaractere(String text)
+    public TTexto(String text)
     {
         setText(text);
     }
 
-    public TCaractere(String text, int line, int pos)
+    public TTexto(String text, int line, int pos)
     {
         setText(text);
         setLine(line);
@@ -22,12 +22,12 @@ public final class TCaractere extends Token
     @Override
     public Object clone()
     {
-      return new TCaractere(getText(), getLine(), getPos());
+      return new TTexto(getText(), getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTCaractere(this);
+        ((Analysis) sw).caseTTexto(this);
     }
 }

@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TLogMenor extends Token
+public final class TSubtracao extends Token
 {
-    public TLogMenor()
+    public TSubtracao()
     {
-        super.setText("<");
+        super.setText("-");
     }
 
-    public TLogMenor(int line, int pos)
+    public TSubtracao(int line, int pos)
     {
-        super.setText("<");
+        super.setText("-");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TLogMenor extends Token
     @Override
     public Object clone()
     {
-      return new TLogMenor(getLine(), getPos());
+      return new TSubtracao(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTLogMenor(this);
+        ((Analysis) sw).caseTSubtracao(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TLogMenor text.");
+        throw new RuntimeException("Cannot change TSubtracao text.");
     }
 }

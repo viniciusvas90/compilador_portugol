@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TMenos extends Token
+public final class TDisjuncao extends Token
 {
-    public TMenos()
+    public TDisjuncao()
     {
-        super.setText("-");
+        super.setText("ou");
     }
 
-    public TMenos(int line, int pos)
+    public TDisjuncao(int line, int pos)
     {
-        super.setText("-");
+        super.setText("ou");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TMenos extends Token
     @Override
     public Object clone()
     {
-      return new TMenos(getLine(), getPos());
+      return new TDisjuncao(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTMenos(this);
+        ((Analysis) sw).caseTDisjuncao(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TMenos text.");
+        throw new RuntimeException("Cannot change TDisjuncao text.");
     }
 }

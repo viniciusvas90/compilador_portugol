@@ -5,16 +5,16 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TLogOu extends Token
+public final class TIgualdade extends Token
 {
-    public TLogOu()
+    public TIgualdade()
     {
-        super.setText("ou");
+        super.setText("=");
     }
 
-    public TLogOu(int line, int pos)
+    public TIgualdade(int line, int pos)
     {
-        super.setText("ou");
+        super.setText("=");
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,18 @@ public final class TLogOu extends Token
     @Override
     public Object clone()
     {
-      return new TLogOu(getLine(), getPos());
+      return new TIgualdade(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTLogOu(this);
+        ((Analysis) sw).caseTIgualdade(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TLogOu text.");
+        throw new RuntimeException("Cannot change TIgualdade text.");
     }
 }
