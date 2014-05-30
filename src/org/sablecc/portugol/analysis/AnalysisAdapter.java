@@ -201,6 +201,24 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
+    public void caseTTipoReal(TTipoReal node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTTipoInt(TTipoInt node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTTipoChar(TTipoChar node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
     public void caseTSoma(TSoma node)
     {
         defaultCase(node);
@@ -285,19 +303,7 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTTipoReal(TTipoReal node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTTipoInt(TTipoInt node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTTipoChar(TTipoChar node)
+    public void caseTAtribuicao(TAtribuicao node)
     {
         defaultCase(node);
     }
@@ -310,12 +316,6 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTNumero(TNumero node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
-    public void caseTTexto(TTexto node)
     {
         defaultCase(node);
     }
@@ -369,12 +369,6 @@ public class AnalysisAdapter implements Analysis
     }
 
     @Override
-    public void caseTAtribuicao(TAtribuicao node)
-    {
-        defaultCase(node);
-    }
-
-    @Override
     public void caseTAbreParentese(TAbreParentese node)
     {
         defaultCase(node);
@@ -388,6 +382,36 @@ public class AnalysisAdapter implements Analysis
 
     @Override
     public void caseTBranco(TBranco node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTComentarioBloco(TComentarioBloco node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTComentarioFinal(TComentarioFinal node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTComentarioMeio(TComentarioMeio node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTBarra(TBarra node)
+    {
+        defaultCase(node);
+    }
+
+    @Override
+    public void caseTAsterisco(TAsterisco node)
     {
         defaultCase(node);
     }

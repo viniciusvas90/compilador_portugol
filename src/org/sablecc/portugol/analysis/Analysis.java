@@ -33,6 +33,9 @@ public interface Analysis extends Switch
     void caseTDe(TDe node);
     void caseTFimPara(TFimPara node);
     void caseTPasso(TPasso node);
+    void caseTTipoReal(TTipoReal node);
+    void caseTTipoInt(TTipoInt node);
+    void caseTTipoChar(TTipoChar node);
     void caseTSoma(TSoma node);
     void caseTSubtracao(TSubtracao node);
     void caseTMulti(TMulti node);
@@ -47,12 +50,9 @@ public interface Analysis extends Switch
     void caseTConjuncao(TConjuncao node);
     void caseTDisjuncao(TDisjuncao node);
     void caseTDisjuncaoExc(TDisjuncaoExc node);
-    void caseTTipoReal(TTipoReal node);
-    void caseTTipoInt(TTipoInt node);
-    void caseTTipoChar(TTipoChar node);
+    void caseTAtribuicao(TAtribuicao node);
     void caseTId(TId node);
     void caseTNumero(TNumero node);
-    void caseTTexto(TTexto node);
     void caseTComentLinha(TComentLinha node);
     void caseTVirgula(TVirgula node);
     void caseTDoisPontos(TDoisPontos node);
@@ -61,10 +61,14 @@ public interface Analysis extends Switch
     void caseTAspasD(TAspasD node);
     void caseTAbreColchete(TAbreColchete node);
     void caseTFechaColchete(TFechaColchete node);
-    void caseTAtribuicao(TAtribuicao node);
     void caseTAbreParentese(TAbreParentese node);
     void caseTFechaParentese(TFechaParentese node);
     void caseTBranco(TBranco node);
+    void caseTComentarioBloco(TComentarioBloco node);
+    void caseTComentarioFinal(TComentarioFinal node);
+    void caseTComentarioMeio(TComentarioMeio node);
+    void caseTBarra(TBarra node);
+    void caseTAsterisco(TAsterisco node);
     void caseEOF(EOF node);
     void caseInvalidToken(InvalidToken node);
 }

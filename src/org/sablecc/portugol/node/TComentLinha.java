@@ -7,14 +7,14 @@ import org.sablecc.portugol.analysis.*;
 @SuppressWarnings("nls")
 public final class TComentLinha extends Token
 {
-    public TComentLinha()
+    public TComentLinha(String text)
     {
-        super.setText("//");
+        setText(text);
     }
 
-    public TComentLinha(int line, int pos)
+    public TComentLinha(String text, int line, int pos)
     {
-        super.setText("//");
+        setText(text);
         setLine(line);
         setPos(pos);
     }
@@ -22,18 +22,12 @@ public final class TComentLinha extends Token
     @Override
     public Object clone()
     {
-      return new TComentLinha(getLine(), getPos());
+      return new TComentLinha(getText(), getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
         ((Analysis) sw).caseTComentLinha(this);
-    }
-
-    @Override
-    public void setText(@SuppressWarnings("unused") String text)
-    {
-        throw new RuntimeException("Cannot change TComentLinha text.");
     }
 }

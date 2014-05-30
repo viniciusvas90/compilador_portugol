@@ -20,7 +20,7 @@ public class Main {
 
     public static void main(String[] args) throws FileNotFoundException, LexerException, IOException {
         File file = new File("E:\\Users\\Eduardo Santos\\Documents\\NetBeansProjects\\Compilador\\src\\compilador\\teste.txt");
-        Lexer lex = new Lexer(new PushbackReader(new FileReader(file)));
+        MyLexer lex = new MyLexer(new PushbackReader(new FileReader(file)));
         String teste = "";
         int linha = 0;
         while (!(lex.peek() instanceof EOF)) {

@@ -1,0 +1,85 @@
+Package org.sablecc.portugol; // package name
+
+Helpers
+  tudo = [0 .. 0xffff];
+  digito = ['0' .. '9'];
+  letra_up = ['A' .. 'Z'];
+  letra_low = ['a' .. 'z'];
+  letra = letra_low | letra_up;
+  underline = '_';
+  quebra_linha = 10;
+  retorno_carro = 13;
+  tab = 9;
+  branco = retorno_carro | ' ' | tab | quebra_linha |;
+  
+States
+  normal,
+  comentario;
+  
+Tokens
+  //reservadas  
+  {normal}inicio_programa = 'inicio';
+  {normal}fim_programa = 'fim.';
+  {normal}programa = 'programa';
+  {normal}constante = 'const';
+  {normal}leia_console = 'leia';
+  {normal}escreva_console = 'escreva';
+  {normal}se = 'se';
+  {normal}entao = 'entao';
+  {normal}senao = 'senao';
+  {normal}fim_se = 'fim se';
+  {normal}avalie = 'avalie';
+  {normal}caso = 'caso';
+  {normal}fim_avalie = 'fim avalie';
+  {normal}enquanto = 'enquanto';
+  {normal}faca = 'faca';
+  {normal}fim_enquanto = 'fim enquanto';
+  {normal}repita = 'repita';
+  {normal}ate = 'ate';
+  {normal}para = 'para';
+  {normal}de = 'de';
+  {normal}fim_para = 'fim para';
+  {normal}passo = 'passo';
+  {normal}tipo_real = 'real';
+  {normal}tipo_int = 'inteiro';
+  {normal}tipo_char = 'caractere';
+  //operadores matemáticos
+  {normal}soma = '+';
+  {normal}subtracao = '-';
+  {normal}multi = '*';
+  {normal}div = '/';
+  //operadores lógicos
+  {normal}igualdade = '=';
+  {normal}diferenca = '<>';
+  {normal}menor_igual = '<=';
+  {normal}maior_igual = '>=';
+  {normal}menor = '<';
+  {normal}maior = '>';
+  {normal}negacao = 'nao';
+  {normal}conjuncao = 'e';
+  {normal}disjuncao = 'ou';
+  {normal}disjuncao_exc = 'xor';
+  //outros operadores
+  {normal}atribuicao = '<-';
+  
+  //outras
+  {normal}id = (letra | underline) (letra | underline | digito)*;
+  {normal}numero = digito+','?digito*;
+  {normal}coment_linha = '//' [tudo - [10 + 13]]*;
+  {normal}virgula = ',';
+  {normal}dois_pontos = ':';
+  {normal}ponto_virgula = ';';
+  {normal}aspas_s = 39;
+  {normal}aspas_d = 34;
+  {normal}abre_colchete = '[';
+  {normal}fecha_colchete = ']';
+  {normal}abre_parentese = '(';
+  {normal}fecha_parentese = ')';
+  {normal}branco = branco+;
+  
+  {normal->comentario, comentario}
+  comentario_bloco = '/*';
+  {comentario}comentario_final = '*/';
+  {comentario}comentario_meio = [tudo - ['*' + '/']]*;
+  {comentario}barra = '/';
+  {comentario}asterisco = '*';
