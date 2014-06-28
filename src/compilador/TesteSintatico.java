@@ -49,7 +49,7 @@ public class TesteSintatico {
                 }
             } while (true);
         } catch (LexerException ex) {
-            System.out.println(" ERRO lexico !!!");
+            System.out.println("Erro de sintaxe");
          } catch (ParserException ex) {
             Logger.getLogger(TesteSintatico.class.getName()).log(Level.SEVERE, null, ex);
         }

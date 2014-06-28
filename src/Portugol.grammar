@@ -66,7 +66,7 @@ Tokens
   {normal}id = (letra | underline) (letra | underline | digito)*;
   {normal}numero_int = digito+;
   {normal}numero_real = digito+','digito+;
-  {normal}string = '"' tudo '"';
+  {normal}string = 34 tudo 34;
   {normal}coment_linha = '//' [tudo - [10 + 13]]*;
   {normal}virgula = ',';
   {normal}dois_pontos = ':';

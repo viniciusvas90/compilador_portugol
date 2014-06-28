@@ -34,6 +34,6 @@ public final class TComentarioBloco extends Token
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-//        throw new RuntimeException("Cannot change TComentarioBloco text.");
+        throw new RuntimeException("Cannot change TComentarioBloco text.");
     }
 }

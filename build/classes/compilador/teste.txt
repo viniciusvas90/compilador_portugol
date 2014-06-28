@@ -1,25 +1,6 @@
-/*comentario em bloco
-continuaca comentario*/
-programa meu_programa1
-    inicio
-        inteiro: matricula, idade, telefones [3];
-        real: nota1, nota2, nota3, media; //saheuaheu
-        caractere: turma, nome[20], frase[100];
-        const peso_nota1 3;
-
-        
-        matricula <- 123456;
-        escreva();
-        leia();
-        
-        se (a >= b) entao senao fim se;
-
-        avalie caso : senao fim avalie
-        enquanto faca fim enquanto
-        repita ate ;
-        para de ate faca fim para
-        para de passo ate faca fim para
-        - + * /
-        = <> <= >= < >
-        e ou xor
-    fim.
+programa teste
+inicio
+  inteiro: x,y,z;
+  inteiro: umvetor [10];
+  const umaconstante 10;
+fim.
