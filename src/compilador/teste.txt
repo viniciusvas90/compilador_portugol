@@ -1,4 +1,4 @@
-/*comentario em bl/*oco
+/*comentario em bloco
 continuaca comentario*/
 programa meu_programa1
     inicio

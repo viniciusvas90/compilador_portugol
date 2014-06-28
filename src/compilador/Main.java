@@ -4,32 +4,18 @@
  */
 package compilador;
 
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
-import java.io.PushbackReader;
-import org.sablecc.portugol.lexer.*;
-import org.sablecc.portugol.node.*;
+import org.sablecc.portugol.lexer.LexerException;
+import org.sablecc.portugol.parser.ParserException;
 
 /**
  *
- * @author Eduardo Santos
+ * @author Vinicius e Lucas
  */
 public class Main {
-
-    public static void main(String[] args) throws FileNotFoundException, LexerException, IOException {
-        File file = new File("E:\\Users\\Eduardo Santos\\Documents\\NetBeansProjects\\Compilador\\src\\compilador\\teste.txt");
-        MyLexer lex = new MyLexer(new PushbackReader(new FileReader(file)));
-        String teste = "";
-        int linha = 0;
-        while (!(lex.peek() instanceof EOF)) {
-            if (lex.peek().getLine() > linha) {
-                linha = lex.peek().getLine();
-                teste = teste + System.lineSeparator()+linha;
-            }
-            teste = teste + " " + lex.next().getClass().getSimpleName();
-        }
-        System.out.println(teste);
+    public static void main(String[] args) throws IOException, FileNotFoundException, LexerException, ParserException {
+        TesteSintatico teste = new TesteSintatico();
+        teste.iniciar();
     }
 }

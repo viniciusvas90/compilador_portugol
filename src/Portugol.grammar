@@ -20,7 +20,7 @@ Tokens
   //reservadas  
   {normal}inicio_programa = 'inicio';
   {normal}fim_programa = 'fim.';
-  {normal}programa = 'programa';
+  {normal}comeca_programa = 'programa';
   {normal}constante = 'const';
   {normal}leia_console = 'leia';
   {normal}escreva_console = 'escreva';
@@ -64,7 +64,9 @@ Tokens
   
   //outras
   {normal}id = (letra | underline) (letra | underline | digito)*;
-  {normal}numero = digito+','?digito*;
+  {normal}numero_int = digito+;
+  {normal}numero_real = digito+','digito+;
+  {normal}string = '"' tudo '"';
   {normal}coment_linha = '//' [tudo - [10 + 13]]*;
   {normal}virgula = ',';
   {normal}dois_pontos = ':';
@@ -77,9 +79,66 @@ Tokens
   {normal}fecha_parentese = ')';
   {normal}branco = branco+;
   
-  {normal->comentario, comentario}
-  comentario_bloco = '/*';
+  {normal->comentario, comentario} comentario_bloco = '/*';
   {comentario}comentario_final = '*/';
   {comentario}comentario_meio = [tudo - ['*' + '/']]*;
   {comentario}barra = '/';
   {comentario}asterisco = '*';
+  
+Ignored Tokens
+  branco, comentario_bloco, coment_linha;
+  
+Productions
+  programa = comeca_programa id inicio_programa declaracao* comando* fim_programa;
+  declaracao = {decl_variavel} tipo dois_pontos var_seq ponto_virgula
+			 | {decl_constante} constante id valor ponto_virgula;
+  var_seq = {sequencia_var} var virgula var_seq | {unica_var} var;
+  tipo = {tipo_real} tipo_real | {tipo_int} tipo_int | {tipo_char} tipo_char;
+  var = {variavel_simples} id | {variavel_array} id abre_colchete numero_int fecha_colchete;
+  valor = {inteiro} numero_int | {real} numero_real | {string} string;
+
+  comando = {atribuicao} var atribuicao exp ponto_virgula
+		  | {leia} leia_console abre_parentese var_seq fecha_parentese ponto_virgula
+		  | {escreva} escreva_console abre_parentese exp_seq fecha_parentese ponto_virgula
+		  | {se} se_decl
+		  | {avalie} avalie abre_parentese exp fecha_parentese
+		    caso_seq*
+			caso_senao+
+			fim_avalie ponto_virgula
+		  | {enquanto} enquanto abre_parentese exp_logica fecha_parentese faca comando_seq* comando [meio]:ponto_virgula fim_enquanto [fim]:ponto_virgula
+		  | {repita} repita comando_seq* comando [meio]:ponto_virgula ate abre_parentese exp_logica fecha_parentese [fim]:ponto_virgula
+		  | {para} para var de [dee]:numero_int ate [atee]:numero_int faca comando_seq* comando [meio]:ponto_virgula fim_para [fim]:ponto_virgula
+		  | {para_passo} para var de [dee]:numero_int passo [passoo]:numero_int ate [atee]:numero_int faca comando_seq* comando [meio]:ponto_virgula fim_para [fim]:ponto_virgula;
+  comando_seq = comando ponto_virgula;
+  
+  caso_seq = caso valor dois_pontos comando_seq* comando ponto_virgula;
+  caso_senao = senao dois_pontos comando_seq* comando ponto_virgula;
+  
+  se_decl = {com_senao} se abre_parentese exp_logica fecha_parentese entao
+		    [see]:comando_seq* [cse]:comando [pvse]:ponto_virgula
+			senao [senaoo]:comando_seq* [csenao]:comando [pvsenao]:ponto_virgula
+			fim_se [pvfim]:ponto_virgula
+		  | {sem_senao} se abre_parentese exp_logica fecha_parentese entao
+		    comando_seq* comando [pvse]:ponto_virgula
+			fim_se [pvfim]:ponto_virgula;
+  
+  exp = {com_op} exp op termo | {sem_op} termo;
+  termo = {com_op2} termo op2 fator | {sem_op2} fator | {negativo} subtracao fator;
+  fator = {emparentado} abre_parentese exp fecha_parentese
+		| {constante} valor
+		| {variavel} var;
+  op = {soma} soma | {subtracao} subtracao;
+  op2 = {multiplicacao} multi | {divisao} div;
+  
+  exp_seq = {sequencia_exp} exp_seq virgula exp | {unica_exp} exp;
+      
+  exp_logica = [esq]:exp op_logicos [dir]:exp;
+  
+  exp_logica2 = {disjuncao} exp_logica2 disjuncao exp_logica3 | {disjuncaox} exp_logica2 disjuncao_exc exp_logica3 | {simples} exp_logica3;
+  exp_logica3 = {conjuncao} exp_logica3 conjuncao exp_logica4 | {simples} exp_logica4;
+  exp_logica4 = {simples} exp_logica
+              | {negada} negacao exp_logica
+			  | {parentado} abre_parentese exp_logica2 fecha_parentese
+			  | {parentadonegado} negacao abre_parentese exp_logica2 fecha_parentese;
+  
+  op_logicos = {igual} igualdade | {dif} diferenca | {menori} menor_igual | {maiori} maior_igual | {menor} menor | {maior} maior;

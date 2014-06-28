@@ -31,9 +31,9 @@ public final class TComentarioBloco extends Token
         ((Analysis) sw).caseTComentarioBloco(this);
     }
 
-    /*@Override
+    @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TComentarioBloco text.");
-    }*/
+//        throw new RuntimeException("Cannot change TComentarioBloco text.");
+    }
 }

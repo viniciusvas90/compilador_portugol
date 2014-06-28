@@ -5,14 +5,14 @@ package org.sablecc.portugol.node;
 import org.sablecc.portugol.analysis.*;
 
 @SuppressWarnings("nls")
-public final class TPrograma extends Token
+public final class TComecaPrograma extends Token
 {
-    public TPrograma()
+    public TComecaPrograma()
     {
         super.setText("programa");
     }
 
-    public TPrograma(int line, int pos)
+    public TComecaPrograma(int line, int pos)
     {
         super.setText("programa");
         setLine(line);
@@ -22,18 +22,18 @@ public final class TPrograma extends Token
     @Override
     public Object clone()
     {
-      return new TPrograma(getLine(), getPos());
+      return new TComecaPrograma(getLine(), getPos());
     }
 
     @Override
     public void apply(Switch sw)
     {
-        ((Analysis) sw).caseTPrograma(this);
+        ((Analysis) sw).caseTComecaPrograma(this);
     }
 
     @Override
     public void setText(@SuppressWarnings("unused") String text)
     {
-        throw new RuntimeException("Cannot change TPrograma text.");
+        throw new RuntimeException("Cannot change TComecaPrograma text.");
     }
 }
